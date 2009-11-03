@@ -165,10 +165,8 @@ maxent(4, 1:6)
 traits <- tussock$trait[, c(2:7, 11)] # use only continuous traits
 traits <- na.omit(traits) # remove 2 species with NA's
 labs <- rownames(traits)
-# standardise traits to zero mean and unit variance
-traits <- apply(traits, 2, scale, center = T)
-# add abs(min(traits)) to make sure no negative values in traits
-traits <- traits + abs(min(traits))
+# standardise traits to unit variance
+traits <- apply(traits, 2, function(x) x / sd(x))
 rownames(traits) <- labs
 abun <- tussock$abun[, rownames(traits)] # abundance matrix
 abun <- t(apply(abun, 1, function(x) x / sum(x) )) # relative abundances

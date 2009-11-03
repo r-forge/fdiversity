@@ -20,7 +20,7 @@
 \concept{CWM}
 \docType{package}
 \title{
-Measure Functional Diversity from Multiple Traits
+Measuring Functional Diversity from Multiple Traits, and Other Tools for Functional Ecology
 }
 \description{
 \pkg{FD} is a package to compute different multidimensional functional diversity (FD) indices. It implements a distance-based framework to measure FD that allows any number and type of functional traits, and can also consider species relative abundances. It also contains other tools for functional ecologists (e.g. \code{\link{maxent}}).

@@ -23,14 +23,14 @@
 Measure Functional Diversity from Multiple Traits
 }
 \description{
-\pkg{FD} is a package to compute different multidimensional functional diversity (FD) indices. It implements a distance-based framework to measure FD that allows any number and type of functional traits, and can also consider species relative abundances.  
+\pkg{FD} is a package to compute different multidimensional functional diversity (FD) indices. It implements a distance-based framework to measure FD that allows any number and type of functional traits, and can also consider species relative abundances. It also contains other tools for functional ecologists (e.g. \code{\link{maxent}}).
 }
 \details{
 \tabular{ll}{
 Package: \tab FD\cr
 Type: \tab Package\cr
-Version: \tab 1.0-1\cr
-Date: \tab 2009-10-22\cr
+Version: \tab 1.0-3\cr
+Date: \tab 2009-11-04\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes \cr

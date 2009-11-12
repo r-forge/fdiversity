@@ -3,6 +3,10 @@
 FD RELEASE VERSIONS
 ===================
 
+CHANGES IN FD 1.0-4
+
+	- added bin.num to functcomp() to allow default behaviour to be over-ridden
+
 CHANGES IN FD 1.0-3
                 
         - added maxent, added Bill Shipley as co-author of FD

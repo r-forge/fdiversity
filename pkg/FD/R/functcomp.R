@@ -1,5 +1,5 @@
 `functcomp` <-
-function(x, a, CWM.type= c("dom", "all")){
+function(x, a, CWM.type= c("dom", "all"), bin.num = NULL){
 
 # check objects
 if (!is.matrix(x) & !is.data.frame(x)) stop("'x' must be a matrix or a data frame.","\n") else x <- data.frame(x)
@@ -29,6 +29,10 @@ CWM.type <- match.arg(CWM.type)
 is.bin <- function(k) all(k[!is.na(k)] %in% c(0,1))
 bin.var <- rep(NA,t); names(bin.var) <- tr.names
 for (i in 1:t) bin.var[i] <- is.bin(x[,i])
+
+# override binary variables if needed
+if (!all(bin.var[bin.num])) stop("'bin.num' points to non-binary variables.\n")
+bin.var[bin.num] <- FALSE
 
 # find trait types
 type <- sapply(x, data.class)

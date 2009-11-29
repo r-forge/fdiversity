@@ -3,6 +3,10 @@
 FD RELEASE VERSIONS
 ===================
 
+CHANGES IN FD 1.0-5
+
+	- corrector minor error in functcomp()
+
 CHANGES IN FD 1.0-4
 
 	- added bin.num to functcomp() to allow default behaviour to be over-ridden

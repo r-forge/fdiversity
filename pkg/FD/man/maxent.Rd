@@ -12,7 +12,7 @@ Estimating Probabilities via Maximum Entropy: Improved Iterative Scaling
 }
 
 \usage{
-maxent(c.means, c.mat, prior, tol = 1e-08, lambda = F)
+maxent(c.means, c.mat, prior, tol = 1e-08, lambda = FALSE)
 }
 
 \arguments{

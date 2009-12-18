@@ -1,7 +1,9 @@
-maxent <- function (c.means, c.mat, prior, tol = 1e-08, lambda = F){
+maxent <- function (c.means, c.mat, prior, tol = 1e-08, lambda = FALSE){
      
      # check input
     if (!is.numeric(c.means)) stop("c.means must be a numeric vector\n")
+    if (!is.numeric(tol)) stop("tol must be numeric\n")
+    if (!is.logical(lambda)) stop("lambda must be logical\n")
     if (!is.matrix(c.mat)){
        if (is.numeric(c.mat)){
           s.names <- names(c.mat)
@@ -18,37 +20,24 @@ maxent <- function (c.means, c.mat, prior, tol = 1e-08, lambda = F){
         dim.matrix <- dim(c.mat)
      }
     n.species <- dim.matrix[2]
-    if (missing(prior) ) prob <- rep(1 / n.species, n.species) else prob <- prior
-    if (length(prob) != n.species) stop("number of states in prior not equal to number in c.mat\n")
-    if (any(is.na(c.means)) || any(is.na(c.mat)) || any(is.na(prob)) ) stop("no NA's allowed\n")
+    n.traits <- dim.matrix[1]
+    if (missing(prior) ) prior <- rep(1 / n.species, n.species)
+    if (length(prior) != n.species) stop("number of states in prior not equal to number in c.mat\n")
+    if (any(is.na(c.means)) || any(is.na(c.mat)) || any(is.na(prior)) ) stop("no NA's allowed\n")
     n.constraints <- length(c.means)
     if (n.constraints != dim.matrix[1]) stop("number of constraint means not equal to number of constraints in c.mat\n")
 
-    # run algorithm
-    C.values <- rowSums(c.mat)
-    test <- 1e+10
-    iter <- 0
-    while (test > tol){
-        iter <- iter + 1
-        denom <- c.mat %*% prob
-        gamma.values <- log(c.means / denom) / C.values
-        if (any(is.na(gamma.values) ) ) stop("NA's in gamma.values\n")
-        unstandardized <- exp(t(gamma.values) %*% c.mat) * prob
-        new.prob <- as.vector(unstandardized / sum(unstandardized) )
-        if (any(is.na(new.prob) ) ) stop("NA's in new.prob\n")
-        test <- max(abs(prob - new.prob))
-        prob <- new.prob
-     }
+    # FORTRAN loop  
+    itscale <- .Fortran("itscale5", as.double(t(c.mat)), as.integer(n.species), as.integer(n.traits), as.double(c.means), as.double(prior), prob = double(n.species), entropy = double(1), niter = integer(1), as.double(tol), moments = double(n.traits), PACKAGE = "FD")
 
   # output
   res <- list()
+  prob <- itscale$prob
   names(prob) <- s.names
   res$prob <- prob
-  moments <- as.numeric(denom)
-  names(moments) <- rownames(denom)
-  res$moments <- moments
-  res$entropy <- -1 * sum(prob * log(prob) )
-  res$iter <- iter
+  res$moments <- itscale$moments
+  res$entropy <- itscale$entropy
+  res$iter <- itscale$niter
   if (lambda){
     lambda <- coef(lm(log(prob) ~ t(c.mat) ) )
     names(lambda) <- c("intercept", c.names)

@@ -3,6 +3,10 @@
 FD RELEASE VERSIONS
 ===================
 
+CHANGES IN FD 1.0-6
+
+	- added compiled FORTRAN code for loop in maxent(). About 10x boost in speed.
+
 CHANGES IN FD 1.0-5
 
 	- corrector minor error in functcomp()

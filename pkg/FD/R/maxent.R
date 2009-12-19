@@ -35,7 +35,9 @@ maxent <- function (c.means, c.mat, prior, tol = 1e-08, lambda = FALSE){
   prob <- itscale$prob
   names(prob) <- s.names
   res$prob <- prob
-  res$moments <- itscale$moments
+  moments <- itscale$moments
+  names(moments) <- c.names
+  res$moments <- moments
   res$entropy <- itscale$entropy
   res$iter <- itscale$niter
   if (lambda){

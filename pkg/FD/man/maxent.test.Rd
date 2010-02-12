@@ -40,7 +40,7 @@ is equal to or smaller than \code{alpha}. Can be useful to speed up the routine.
 }
 
   \item{alpha}{
-desired alpha-level for the test. Only relevant when \code{quick} is \code{TRUE}.
+desired alpha-level for the test. Only relevant if \code{quick} is \code{TRUE}.
 }
 
   \item{plot}{

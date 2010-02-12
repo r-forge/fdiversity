@@ -98,7 +98,7 @@ Etienne \enc{Laliberté}{Laliberte} \email{etiennelaliberte@gmail.com}
 \section{Warning}{\code{maxent.test} is a computationally intensive function. The tests can take a long time when \code{nperm} is large.} 
 
 \seealso{
-\link{maxent} to run the maximum entropy model that is required by \code{maxent.test}. 
+\code{\link{maxent}} to run the maximum entropy model that is required by \code{maxent.test}. 
 }
 \examples{
 

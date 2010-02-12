@@ -1,7 +1,7 @@
 \encoding{latin1}
 \name{maxent.test}
 \Rdversion{1.1}
-\alias{maxent}
+\alias{maxent.test}
 \concept{maximum entropy}
 \concept{statistical mechanics}
 \title{
@@ -22,7 +22,7 @@ alpha = 0.05, plot = TRUE)
 
 \arguments{
   \item{model}{
-list returned by \link{maxent}.
+list returned by \code{\link{maxent}}.
 }
   \item{obs}{
 vector, matrix or data frame of observed probabilities of the states (columns).
@@ -51,7 +51,7 @@ if \code{TRUE}, a plot is returned to facilitate interpretation.
 \details{
 \code{maxent.test} is a direct translation of the permutation tests described by Shipley (2010). Please refer to this article for details.
 
-If \link{maxent} was run with multiple data sets (i.e. if \code{constr} had more than one row), then  \code{maxent.test} performs the test for all sets simultaneously, following the \sQuote{omnibus} procedure described by Shipley (2010).
+If \code{\link{maxent}} was run with multiple data sets (i.e. if \code{constr} had more than one row), then  \code{maxent.test} performs the test for all sets simultaneously, following the \sQuote{omnibus} procedure described by Shipley (2010).
 
 The following measure of fit between observed and predicted probabilities is returned:
 

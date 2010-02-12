@@ -125,7 +125,7 @@ of \eqn{\lambda_{i}}{lambda_i} and these slopes (Lagrange multipliers) measure
 by how much the \eqn{ln(\hat{p}_{j})}{ln(pj_hat)}, i.e. the \eqn{ln}{ln}(relative abundances),
 changes as the value of the trait changes.
 
-\link{maxent.test} provides permutation tests to test for maxent models (Shipley 2010).
+\link{maxent.test} provides permutation tests for maxent models (Shipley 2010).
 
 }
 

@@ -1,4 +1,4 @@
-maxent <- function(constr, states, prior, tol = 1e-08, lambda = FALSE){
+maxent <- function(constr, states, prior, tol = 1e-07, lambda = FALSE){
      
      # check input
     if (is.vector(constr)){

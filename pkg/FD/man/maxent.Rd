@@ -12,7 +12,7 @@ Estimating Probabilities via Maximum Entropy: Improved Iterative Scaling
 }
 
 \usage{
-maxent(constr, states, prior, tol = 1e-08, lambda = FALSE)
+maxent(constr, states, prior, tol = 1e-07, lambda = FALSE)
 }
 
 \arguments{

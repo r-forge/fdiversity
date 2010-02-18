@@ -6,7 +6,6 @@ maxent <- function(constr, states, prior, tol = 1e-07, lambda = FALSE){
         constr <- matrix(constr, 1, length(constr) ) ; dimnames(constr) <- list("set1", means.names)
     }
     if (is.data.frame(constr)) constr <- as.matrix(constr)
-    if (dim(constr)[2] == 1 && dim(constr)[1] > 1) constr <- t(constr)
     if (!is.numeric(constr)) stop("constr must only contain numeric values\n")
     if (!is.numeric(tol)) stop("tol must be numeric\n")
     if (!is.logical(lambda)) stop("lambda must be logical\n")

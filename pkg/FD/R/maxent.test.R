@@ -43,7 +43,7 @@ maxent.test <- function(model, obs, sub.c, nperm = 99, quick = FALSE, alpha = 0.
           prob.temp <- matrix(NA, n.sets, n.states)
              for (j in 1:n.sets){
                shuffled <- sample(1:n.states, n.states)
-               states.perm <- states[, shuffled]; colnames(states.perm) <- s.names
+               states.perm <- states[, shuffled, drop = F]; colnames(states.perm) <- s.names
                constr.perm <- functcomp(t(states.perm), obs[j, , drop = F])
                prob.temp[j, ] <- maxent(constr.perm, states.perm, prior[j, ])$prob
              }
@@ -75,7 +75,7 @@ maxent.test <- function(model, obs, sub.c, nperm = 99, quick = FALSE, alpha = 0.
              for (j in 1:n.sets){
                shuffled <- sample(1:n.states, n.states)
                states.perm <- states
-               states.perm[sub.c, ] <- states[sub.c, shuffled]; colnames(states.perm) <- s.names
+               states.perm[sub.c, ] <- states[sub.c, shuffled, drop = F]; colnames(states.perm) <- s.names
                constr.perm <- functcomp(t(states.perm), obs[j, , drop = F])
                prob.temp[j, ] <- maxent(constr.perm, states.perm, prior[j, ])$prob
              }

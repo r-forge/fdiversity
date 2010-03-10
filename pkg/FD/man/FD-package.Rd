@@ -29,8 +29,8 @@ Measuring Functional Diversity from Multiple Traits, and Other Tools for Functio
 \tabular{ll}{
 Package: \tab FD\cr
 Type: \tab Package\cr
-Version: \tab 1.0-7\cr
-Date: \tab 2010-02-12\cr
+Version: \tab 1.0-8\cr
+Date: \tab 2010-03-10\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes \cr

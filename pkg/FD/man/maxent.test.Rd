@@ -119,7 +119,7 @@ maxent.test(pred.abun, obs = abun[1,], nperm = 49)
 
 # are height, LDMC, and leaf [N] important constraints?
 maxent.test(pred.abun, obs = abun[1,], sub.c = c("height",
-"LMDC", "leafN"), nperm = 49)
+"LDMC", "leafN"), nperm = 49)
 }
 }
 

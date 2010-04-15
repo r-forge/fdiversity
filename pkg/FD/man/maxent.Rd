@@ -188,7 +188,6 @@ pred.abun <- maxent(agg[1,], traits)
 
 \dontrun{
 # do the constraints give predictive ability?
-# may take a minute or so...
 maxent.test(pred.abun, obs = abun[1,], nperm = 49)
 }
 }

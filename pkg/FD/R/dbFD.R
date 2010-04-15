@@ -1,6 +1,9 @@
 `dbFD` <-
 function(x, a , w, w.abun = TRUE, stand.x = TRUE, ord = c("podani", "metric"), asym.bin = NULL, corr = c("sqrt", "cailliez", "lingoes", "none"),  calc.FRic = TRUE, m = "max", stand.FRic = TRUE, scale.RaoQ = FALSE, calc.FGR = FALSE, clust.type = "ward", km.inf.gr = 2, km.sup.gr = nrow(x) - 1, km.iter = 100, km.crit = c("calinski", "ssi"),  calc.CWM = TRUE, CWM.type = c("dom", "all"), calc.FDiv = TRUE, dist.bin = 2, print.pco = FALSE, messages = TRUE){
 
+# get tolerance value specifying small values that should be 0
+tol <- .Machine$double.eps
+
 # match and check arguments
 corr <- match.arg(corr)
 ord <- match.arg(ord)
@@ -302,8 +305,6 @@ for (i in 1:c){
 		sp.pres <- which(a[i, ] > 0)
 
 		#  number of unique species in the community
-                # get tolerance value specifying small values that should be 0
-                tol <- .Machine$double.eps
                 traits.sp.pres <- traits[sp.pres, , drop = F ]
                 traits.sp.pres[traits.sp.pres != 0 & abs(traits.sp.pres) < tol] <- 0
 		nb.sp[i] <- nrow(unique(traits.sp.pres ) )

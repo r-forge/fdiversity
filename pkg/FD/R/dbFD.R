@@ -295,35 +295,24 @@ traits <- x.pco$li
 
 # calculate nb.sp to decide if dimensionality reduction is required for convex hull volume
 # nb.sp = number of unique species in each community
-nb.sp <- c()
+nb.sp <- numeric(c)
 
-if (dim(traits)[2] > 1)
-{
-	for (i in 1:c)
-	{
+for (i in 1:c){
 		# selection of species present in each community
 		sp.pres <- which(a[i, ] > 0)
 
 		#  number of unique species in the community
-		nb.sp[i] <- nrow((unique(traits[sp.pres, ] ) ) )
+                # get tolerance value specifying small values that should be 0
+                tol <- .Machine$double.eps
+                traits.sp.pres <- traits[sp.pres, , drop = F ]
+                traits.sp.pres[traits.sp.pres != 0 & abs(traits.sp.pres) < tol] <- 0
+		nb.sp[i] <- nrow(unique(traits.sp.pres ) )
 	}
-}
-if (dim(traits)[2] == 1)
-{
-	for (i in 1:c)
-	{
-		# selection of species present in each community
-		sp.pres <- which(a[i, ] > 0)
-
-		#  number of unique species in the community
-		nb.sp[i] <- length((unique(traits[sp.pres, ] ) ) )
-	}
-}
 
 names(nb.sp) <- row.names(a)
 # find number of unique species in community with the fewest unique species
 min.nb.sp <- min(nb.sp)
-#
+
 if (min.nb.sp < 3) if (messages) cat("FEVe: Could not be calculated for communities with <3 functionally singular species.","\n")
 if (min.nb.sp < 2) if (messages) cat("FDis: Equals 0 in communities with only one functionally singular species.","\n")
 #

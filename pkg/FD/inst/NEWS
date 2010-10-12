@@ -3,11 +3,15 @@
 FD RELEASE VERSIONS
 ===================
 
+CHANGES IN FD 1.0-10
+
+        - added option ord = "classic" in gowdis to reproduce behaviour of daisy in {cluster}
+        - added message about dbFD sometimes crashing due to calc.FRic = "TRUE", and proposed 'solutions'.
+
 CHANGES IN FD 1.0-9
 
 	- fixed bug to compute sing.sp in dbFD(). Thanks to Sarah Berke for reporting.
         - added message to mention maxentMC is available as a faster alternative for multicore processors (Linux or Mac only)
-        - added in gowdis help page that it differs from daisy even when ord = "metric"
 
 CHANGES IN FD 1.0-8
 

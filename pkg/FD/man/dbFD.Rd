@@ -139,6 +139,8 @@ Sokal, R. R. and C. D. Michener (1958) A statistical method for evaluating syste
 }
 \author{Etienne \enc{Laliberté}{Laliberte} \email{etiennelaliberte@gmail.com} \url{http://www.elaliberte.info}}
 \note{\code{dbFD} borrows code from the \code{F_RED} function of \enc{Villéger}{Villeger} et al. (2008).}
+\section{Warning}{Users often report that \code{dbFD} crashed during their analysis. Generally this occurs under Windows, and is almost always due to the computation of convex hull volumes. Possible solutions are to choose \code{calc.FRic = "FALSE"}, or to reduce the dimensionality of the trait matrix using the \code{"m"} argument.} 
+
 \seealso{\code{\link{gowdis}}, \code{\link{functcomp}}, \code{\link{fdisp}}, \code{\link{simul.dbFD}}, \code{\link[ade4]{divc}}, \code{\link[vegan]{treedive}}, \code{\link[vegan]{betadisper}}}
 \examples{
 # mixed trait types, NA's

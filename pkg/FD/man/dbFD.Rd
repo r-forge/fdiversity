@@ -25,7 +25,7 @@
 dbFD(x, a, w, w.abun = TRUE, stand.x = TRUE,
     ord = c("podani", "metric"), asym.bin = NULL,
     corr = c("sqrt", "cailliez", "lingoes", "none"),
-    calc.FRic = TRUE, m = "max", stand.FRic = TRUE,
+    calc.FRic = TRUE, m = "max", stand.FRic = FALSE,
     scale.RaoQ = FALSE, calc.FGR = FALSE, clust.type = "ward",
     km.inf.gr = 2, km.sup.gr = nrow(x) - 1, km.iter = 100,
     km.crit = c("calinski", "ssi"), calc.CWM = TRUE,

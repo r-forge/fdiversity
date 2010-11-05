@@ -7,6 +7,8 @@ CHANGES IN FD 1.0-10
 
         - added option ord = "classic" in gowdis to reproduce behaviour of daisy in {cluster}
         - added message about dbFD sometimes crashing due to calc.FRic = "TRUE", and proposed 'solutions'.
+	- corrected minor bug in dbFD to detect if one species had no trait data
+	- changed stand.FRic to FALSE in dbFD by default
 
 CHANGES IN FD 1.0-9
 

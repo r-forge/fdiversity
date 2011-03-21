@@ -3,6 +3,10 @@
 FD RELEASE VERSIONS
 ===================
 
+CHANGES IN FD 1.0-11
+
+        - corrected NAMESPACE file
+
 CHANGES IN FD 1.0-10
 
         - added option ord = "classic" in gowdis to reproduce behaviour of daisy in {cluster}
